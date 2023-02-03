@@ -1,5 +1,5 @@
 # Vidar string decryptor TEST script 
-# note to self: fix the ea's and the way the encrypted strings are passed
+# NOTE TO SELF: fix the ea's and the way the encrypted strings are passed
 
 import idautils
 
