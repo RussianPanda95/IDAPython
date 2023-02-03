@@ -38,5 +38,5 @@ for xref in idautils.CodeRefsTo(ea, 1):
             idc.set_name(get_dword_val, "api_"+m, SN_CHECK)
             
             
-            
+           
          
