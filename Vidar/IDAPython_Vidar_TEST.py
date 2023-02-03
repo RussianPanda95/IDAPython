@@ -151,3 +151,5 @@ for ref in idautils.XrefsTo(ea):
         decrypted_str = ''.join(map(chr, decrypt_me))
         print(decrypted_str)
         idc.set_cmt(cur_addr,decrypted_str,0)
+
+        
