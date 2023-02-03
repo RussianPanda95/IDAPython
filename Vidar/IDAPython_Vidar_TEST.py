@@ -1,5 +1,6 @@
 # Vidar string decryptor TEST script 
 # NOTE TO SELF: fix the ea's and the way the encrypted strings are passed
+# MD5: 3d2668ce280362a6f56418068aca2292
 
 import idautils
 
