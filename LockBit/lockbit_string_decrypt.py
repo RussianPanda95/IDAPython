@@ -36,7 +36,6 @@ for xref in idautils.CodeRefsTo(ea, 0):
         
         # Move to previous instruction
         prev_ea = idc.prev_head(prev_ea)
-        
 
     # Iterate through "mov" after "lea"
     while prev_ea >= idaapi.get_func(xref).start_ea:
@@ -46,8 +45,7 @@ for xref in idautils.CodeRefsTo(ea, 0):
             second_operand = idc.print_operand(prev_ea, 1).replace("h", "")
             operands.append(int(second_operand, 16).to_bytes(4, byteorder="little"))
             print("Second operand of 'mov' instruction at address " + hex(prev_ea) + " is " + second_operand)
-
-            
+      
         elif idaapi.print_insn_mnem(prev_ea) == "push":
             # Concatenate operands and stop iterating if "push" is found
             operands_bytes = b"".join(operands)
