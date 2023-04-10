@@ -1,3 +1,5 @@
+# Tested on sample MD5:bc6e5949540eb57199bff7f3c46cc62a
+
 import idautils
 import idc
 import idaapi
