@@ -9,7 +9,6 @@ def xor_decrypt(data, key):
         out.append(data[i] ^ key[i % len(key)])
     return out
 
-
 # String decrypt function
 ea = 0x00401085
 
@@ -25,7 +24,6 @@ for xref in idautils.CodeRefsTo(ea, 0):
     if b"\x00" in key[-40:]:
         key = key[:len(key)-40+key[-40:].index(b"\x00")]
         
-
     string_addr = idc.get_operand_value(prev_ea, 0)
     data = idaapi.get_strlit_contents(string_addr, -1, idc.get_inf_attr(idc.INF_MAX_EA))
     try:
