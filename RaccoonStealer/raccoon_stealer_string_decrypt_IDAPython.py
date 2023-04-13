@@ -1,3 +1,4 @@
+# Tested on the newest build 2.1.0-4
 import idc
 import idaapi
 import idautils
