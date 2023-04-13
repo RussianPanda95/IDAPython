@@ -52,7 +52,7 @@ for xref in idautils.CodeRefsTo(ea, 0):
                         prev3_ea = idc.prev_head(prev2_ea)
                         prev3_instr = idc.print_insn_mnem(prev3_ea)
                         if prev3_instr == "xor":
-                            # Found the combination! Print the addresses
+                            # Found the combination, print the addresses
                             #print(f"Addresses: {prev3_ea:x}, {prev2_ea:x}, {prev_ea:x}")
                             size_esi = idc.get_operand_value(prev2_ea, 0)
                             #print(f"Size of the esi: {1}")
@@ -63,7 +63,7 @@ for xref in idautils.CodeRefsTo(ea, 0):
                             print(f"Decrypted string: {decr_str}")
                             idc.set_cmt(xref, f"{decr_str}", 1)
                             found = True
-                # Look for combinations of ["push", "pop", "push"]
+                # Look for combinations of ["pop", "push", "call"]
                 elif prev_instr == "pop":
                     prev2_ea = idc.prev_head(prev_ea)
                     prev2_instr = idc.print_insn_mnem(prev2_ea)
@@ -71,7 +71,7 @@ for xref in idautils.CodeRefsTo(ea, 0):
                         prev3_ea = idc.prev_head(prev2_ea)
                         prev3_instr = idc.print_insn_mnem(prev3_ea)
                         if prev3_instr == "call":
-                            # Found the combination! Print the addresses
+                            # Found the combination, prinnt the addresses
                             #print(f"Addresses: {prev3_ea:x}, {prev2_ea:x}, {prev_ea:x}")
                             size_esi = idc.get_operand_value(prev2_ea, 0)
                             #print(f"Size of the esi: {size_esi}")
@@ -114,7 +114,7 @@ for xref in idautils.CodeRefsTo(ea, 0):
                         prev3_ea = idc.prev_head(prev2_ea)
                         prev3_instr = idc.print_insn_mnem(prev3_ea)
                         if prev3_instr == "xor":
-                            # Found the combination! Print the addresses
+                            # Found the combination, print the addresses
                             #print(f"Addresses: {prev3_ea:x}, {prev2_ea:x}, {prev_ea:x}")
                             size_esi = idc.get_operand_value(prev2_ea, 0)
                             #print(f"Size of the edi: {1}")
@@ -134,7 +134,7 @@ for xref in idautils.CodeRefsTo(ea, 0):
                                 print(f"Decrypted string: {decr_str}")
                                 idc.set_cmt(xref, f"{decr_str}", 1)
                             found = True
-                # Look for combinations of ["inc", "mov", "xor"]
+                # Look for combinations of ["pop", "push"]
                 elif prev_instr == "pop":
                     prev2_ea = idc.prev_head(prev_ea)
                     prev2_instr = idc.print_insn_mnem(prev2_ea)
@@ -174,7 +174,7 @@ for xref in idautils.CodeRefsTo(ea, 0):
             prev_instr = idc.print_insn_mnem(prev_ea)
             # Check if the previous instruction matches the target operand
             if idc.print_operand(prev_ea, 0) == "ebx":
-                # Look for combinations of ["inc", "mov", "xor"]
+                # Look for combinations of ["push", "call", "push", "pop", "push"]
                 if prev_instr == "push":
                     prev2_ea = idc.prev_head(prev_ea)
                     prev2_instr = idc.print_insn_mnem(prev2_ea)
@@ -188,7 +188,7 @@ for xref in idautils.CodeRefsTo(ea, 0):
                                 prev5_ea = idc.prev_head(prev4_ea)
                                 prev5_instr = idc.print_insn_mnem(prev5_ea)
                                 if prev4_instr == "push":
-                                    # Found the combination! Print the addresses
+                                    # Found the combination, print the addresses
                                     #print(f"Addresses: {prev_ea:x}, {prev2_ea:x}, {prev3_ea:x}, {prev4_ea:x}, {prev5_ea:x}")
                                     size_ebx = idc.get_operand_value(prev2_ea, 0)
                                     #print(f"Size of the ebx: {size_ebx}")
