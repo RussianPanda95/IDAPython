@@ -53,7 +53,7 @@ for xref in idautils.CodeRefsTo(ea, 0):
                         prev3_instr = idc.print_insn_mnem(prev3_ea)
                         if prev3_instr == "xor":
                             # Found the combination, print the addresses
-                            #print(f"Addresses: {prev3_ea:x}, {prev2_ea:x}, {prev_ea:x}")
+                            #print(f"Addresses: {prev_ea:x}, {prev2_ea:x}, {prev3_ea:x}")
                             size_esi = idc.get_operand_value(prev2_ea, 0)
                             #print(f"Size of the esi: {1}")
                             #print(hex(get_operand_key))
