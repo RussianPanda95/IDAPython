@@ -5,14 +5,11 @@ import idautils
 
 ea = 0x004158D8
 
-found = False
-
 def xor_decrypt(data, key, size):
     out = []
     for i in range(size):
         out.append(data[i % len(data)] ^ key[i % len(key)])
-    return bytes(out)
-    
+    return bytes(out)   
     
 for xref in idautils.CodeRefsTo(ea, 0):
     args = idaapi.get_arg_addrs(xref)[0]
