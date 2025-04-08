@@ -344,7 +344,7 @@ def generate_string():
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     
-    #output_file = os.path.join(output_dir, "filtered_strings.txt")
+    output_file = os.path.join(output_dir, "filtered_strings.txt")
     
     alphabet_string = None
     encoded_data_string = None
